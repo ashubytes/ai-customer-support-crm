@@ -1,0 +1,33 @@
+{
+  "name": "ai-customer-support-crm",
+  "version": "1.0.0",
+  "description": "Production-grade AI-Powered Customer Support & CRM Platform",
+  "private": true,
+  "scripts": {
+    "dev": "concurrently -n \"SERVER,AI_SERVICE,CLIENT\" -c \"blue,magenta,cyan\" \"npm run dev:server\" \"npm run dev:ai\" \"npm run dev:client\"",
+    "dev:server": "npm --prefix server run dev",
+    "dev:client": "npm --prefix client run dev",
+    "dev:ai": "python -m uvicorn app.main:app --app-dir ai-service --reload --port 8000",
+    "build:server": "npm --prefix server run build",
+    "build:client": "npm --prefix client run build",
+    "db:init": "npm --prefix server run db:init",
+    "db:seed": "npm --prefix server run db:seed",
+    "test:server": "npm --prefix server test",
+    "test:ai": "python -m pytest ai-service"
+  },
+  "keywords": [
+    "crm",
+    "customer-support",
+    "ai",
+    "gemini",
+    "react",
+    "express",
+    "mysql",
+    "fastapi"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^10.0.5"
+  }
+}
